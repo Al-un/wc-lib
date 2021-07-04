@@ -1,0 +1,6 @@
+# Generated files / dependencies
+node_modules
+dist
+
+# Config files
+postcss.config.js 

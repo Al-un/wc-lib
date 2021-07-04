@@ -1,0 +1,42 @@
+@use '../variables/' as *;
+
+@function get-color($color) {
+  // Theme colors
+  @if $color == 'primary' {
+    @return var(--wcl-primary, $primary);
+  } @else if $color == 'primary-light' {
+    @return var(--wcl-primary-light, $primary-light);
+  } @else if $color == 'primary-dark' {
+    @return var(--wcl-primary-dark, $primary-dark);
+  } @else if $color == 'danger' {
+    @return var(--wcl-danger, $danger);
+  } @else if $color == 'danger-light' {
+    @return var(--wcl-danger-light, $danger-light);
+  } @else if $color == 'danger-dark' {
+    @return var(--wcl-danger-dark, $danger-dark);
+  }
+  // Text colours
+  @else if $color == 'text' {
+    @return $text;
+  } @else if $color == 'text-sub' {
+    @return $text-sub;
+  } @else if $color == 'text-alt' {
+    @return $text-alt;
+  }
+  // Backgrounds
+  @else if $color == 'bg-content' {
+    @return $bg-content;
+  } @else if $color == 'bg-input' {
+    @return $bg-input;
+  } @else if $color == 'bg-app' {
+    @return $bg-app;
+  }
+  // Others
+  @else if $color == 'divider' {
+    @return $divider;
+  }
+  // T_T
+  @else {
+    @error "getColor: invalid color #{$color}";
+  }
+}

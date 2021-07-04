@@ -5,10 +5,11 @@
   "scripts": {
     "build": "rollup --config rollup.config.js",
     "build:rollup": "rollup --config rollup.config.js",
+    "build-storybook": "build-storybook",
+    "chromatic":"chromatic",
     "lint": "eslint --cache --ext .js --ext .ts .",
     "test": "rimraf dist && ENV=test rollup --config rollup.config.test.js && web-test-runner --coverage",
-    "storybook": "start-storybook",
-    "storybook:build": "build-storybook"
+    "storybook": "start-storybook"
   },
   "dependencies": {
     "@al-un/wcl-core": "*",

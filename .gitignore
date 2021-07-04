@@ -1,0 +1,16 @@
+# Dependencies
+node_modules
+
+# Build
+dist
+storybook-static
+
+# Test
+coverage
+
+# Yarn, rollup...
+.rollup.cache
+*.log
+
+# Eslint
+.eslintcache

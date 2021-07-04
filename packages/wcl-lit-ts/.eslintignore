@@ -1,0 +1,8 @@
+# Generated files / dependencies
+node_modules
+dist
+coverage
+storybook-static
+
+# Config files
+postcss.config.js 

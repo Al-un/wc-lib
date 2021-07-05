@@ -7,6 +7,8 @@ import { SuperButtonTheme } from '@al-un/wcl-core/types';
 
 @customElement('super-lit-ts-button')
 export class SuperLitTsButton extends LitElement {
+  static styles = unsafeCSS(scss);
+
   // @property({ type: Boolean })
   // solid = false;
 
@@ -19,6 +21,7 @@ export class SuperLitTsButton extends LitElement {
   // @property({ type: Boolean })
   // danger = false;
 
+  disabled!: boolean;
   outline!: boolean;
   theme!: SuperButtonTheme;
 
@@ -26,17 +29,17 @@ export class SuperLitTsButton extends LitElement {
     super();
 
     this.outline = false;
+    this.disabled = false;
     this.theme = 'primary';
   }
 
   static get properties() {
     return {
+      disabled: { type: Boolean },
       outline: { type: Boolean },
       theme: { type: String },
     };
   }
-
-  static styles = unsafeCSS(scss);
 
   get cssClasses(): ClassInfo {
     return {
@@ -47,7 +50,10 @@ export class SuperLitTsButton extends LitElement {
   }
 
   render(): TemplateResult {
-    return html`<button class=${classMap(this.cssClasses)}>
+    return html`<button
+      class=${classMap(this.cssClasses)}
+      ?disabled=${this.disabled}
+    >
       <slot name="icon"></slot>
       <span class="content"><slot></slot></span>
     </button>`;

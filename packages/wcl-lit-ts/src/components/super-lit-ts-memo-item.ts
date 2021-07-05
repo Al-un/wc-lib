@@ -10,10 +10,13 @@ import { customElement } from 'lit/decorators.js';
 
 import scss from '@al-un/wcl-core/styles/components/super-all/super-memo-item.scss';
 import { SuperMemo } from '@al-un/wcl-core/types';
+
 import './super-lit-ts-button';
 
 @customElement('super-lit-ts-memo-item')
 export class SuperLitTsMemoItem extends LitElement {
+  static styles = unsafeCSS(scss);
+
   memo!: SuperMemo;
 
   constructor() {
@@ -26,19 +29,18 @@ export class SuperLitTsMemoItem extends LitElement {
     return { memo: { type: Object } };
   }
 
-  static get styles(): CSSResultGroup {
-    return css`
-      ${unsafeCSS(scss)}
-    `;
-  }
-
   render(): TemplateResult {
-    return html`<div>${this.memo.text}</div>
-      <div>
-        <super-lit-ts-button theme="danger" @click=${this.onDelete}
-          >Delete</super-lit-ts-button
-        >
-      </div>`;
+    return html` <div class="memo-title">
+        ${this.memo.id} | ${this.memo.title}
+      </div>
+      <div class="memo-text">${this.memo.text}</div>
+      <super-lit-ts-button
+        theme="danger"
+        class="memo-delete"
+        outline
+        @click=${this.onDelete}
+        >Delete</super-lit-ts-button
+      >`;
   }
 
   onDelete(): void {

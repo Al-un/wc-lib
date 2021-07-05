@@ -4,7 +4,7 @@
   "author": "Al-un",
   "scripts": {
     "lint": "eslint --cache --ext .js --ext .ts .",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"TODO?s\""
   },
   "devDependencies": {}
 }

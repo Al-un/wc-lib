@@ -32,6 +32,9 @@ jobs:
     docker:
       - image: cimg/node:15.1
     steps:
+      - checkout
+      - node/install-packages:
+           pkg-manager: yarn 
       - run:
           name: Linting check
           command: yarn lerna run lint
@@ -39,6 +42,9 @@ jobs:
     docker:
       - image: cimg/node:15.1
     steps:
+      - checkout
+      - node/install-packages:
+           pkg-manager: yarn 
       - run:
           name: Linting check
           command: yarn lerna run test

@@ -8,15 +8,21 @@ import {
 } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
-import scss from '@al-un/wcl-core/styles/components/super-all/super-memo.scss';
+import scss from '@al-un/wcl-core/styles/components/super-all/super-memo-list.scss';
 import { SuperMemo } from '@al-un/wcl-core/types';
 
 import './super-lit-ts-button';
+import './super-lit-ts-card';
 import './super-lit-ts-input';
 import './super-lit-ts-memo-item';
+import { SuperLitTsInput } from './super-lit-ts-input';
 
 @customElement('super-lit-ts-memo-list')
 export class SuperLitTsMemoList extends LitElement {
+  static styles = unsafeCSS(scss);
+
+  _memoTitle = '';
+  _memoText = '';
   memos: SuperMemo[] = [];
   memoNextId = 10;
   title = 'Super Memos!';
@@ -26,13 +32,16 @@ export class SuperLitTsMemoList extends LitElement {
   }
 
   static get properties() {
-    return { memos: { type: Array }, title: { type: String } };
+    return {
+      memos: { type: Array },
+      title: { type: String },
+      _memoTitle: { type: String, state: true },
+      _memoText: { type: String, state: true },
+    };
   }
 
-  static get styles(): CSSResultGroup {
-    return css`
-      ${unsafeCSS(scss)}
-    `;
+  get cannotCreateMemo(): boolean {
+    return !this._memoTitle || !this._memoText;
   }
 
   render(): TemplateResult {
@@ -49,8 +58,36 @@ export class SuperLitTsMemoList extends LitElement {
         )}
       </div>
 
-      <super-lit-ts-input></super-lit-ts-input>
-      <super-lit-ts-button @click=${this.onAddMemo}>Add</super-lit-ts-button> `;
+      <super-lit-ts-card class="memo-new" padded>
+        <super-lit-ts-input
+          class="memo-title"
+          type="text"
+          label="Memo title"
+          .value=${this._memoTitle}
+          @input=${this.onMemoTitleInput}
+        ></super-lit-ts-input>
+        <super-lit-ts-input
+          class="memo-text"
+          type="textarea"
+          label="Memo text"
+          .value=${this._memoText}
+          @input=${this.onMemoTextInput}
+        ></super-lit-ts-input>
+        <super-lit-ts-button
+          class="memo-add"
+          ?disabled=${this.cannotCreateMemo}
+          @click=${this.onAddMemo}
+          >Add</super-lit-ts-button
+        >
+      </super-lit-ts-card>`;
+  }
+
+  onMemoTitleInput(inputEvent: CustomEvent<{ value: string }>): void {
+    this._memoTitle = inputEvent.detail.value;
+  }
+
+  onMemoTextInput(inputEvent: CustomEvent<{ value: string }>): void {
+    this._memoText = inputEvent.detail.value;
   }
 
   onDeleteMemo(deleteEvent: CustomEvent<{ memoId: number }>): void {
@@ -65,20 +102,19 @@ export class SuperLitTsMemoList extends LitElement {
   }
 
   onAddMemo(): void {
-    const input = this.shadowRoot?.querySelector('super-lit-ts-input');
-    if (!input) {
-      console.log('SNIF');
+    if (this.cannotCreateMemo) {
       return;
     }
 
     const newMemo: SuperMemo = {
       id: this.memoNextId++,
-      title: '',
-      text: input.value.toString(),
+      title: this._memoTitle,
+      text: this._memoText,
     };
 
     this.memos = [...this.memos, newMemo];
-    input.value = '';
+    this._memoTitle = '';
+    this._memoText = '';
 
     this.dispatchEvent(
       new CustomEvent('add', {

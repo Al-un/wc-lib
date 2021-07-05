@@ -12,6 +12,8 @@ import scss from '@al-un/wcl-core/styles/components/super-all/super-card.scss';
 
 @customElement('super-lit-ts-card')
 export class SuperLitTsCard extends LitElement {
+  static styles = unsafeCSS(scss);
+
   padded!: boolean;
 
   constructor() {
@@ -26,18 +28,8 @@ export class SuperLitTsCard extends LitElement {
     };
   }
 
-  static get styles(): CSSResultGroup {
-    return css`
-      ${unsafeCSS(scss)}
-    `;
-  }
-
   render(): TemplateResult {
-    return html`
-      <header class="card-header"><slot name="header"></slot></header>
-      <main class="card-body"><slot></slot></main>
-      <footer class="card-footer"><slot name="footer"></slot></footer>
-    `;
+    return html`<slot></slot> `;
   }
 }
 

@@ -55,6 +55,6 @@ workflows:
       - lint:
           requires:
             - init
-      - test
+      - test:
           requires:
             - init

@@ -1,13 +1,14 @@
 @use '../../abstracts/' as *;
 
 .super-button {
+  align-items: center;
   border-radius: 4px;
-  padding: 8px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  padding: 8px;
+  width: 100%;
 
-  &:hover {
+  @include on-hover {
     cursor: pointer;
   }
 
@@ -31,4 +32,27 @@
     height: 16px;
     margin-right: 8px;
   }
+
+  &[disabled] {
+    position: relative;
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    @include on-hover {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.content {
+  display: inline-block;
+  width: 100%;
 }

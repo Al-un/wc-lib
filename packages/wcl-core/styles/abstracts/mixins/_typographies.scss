@@ -1,0 +1,16 @@
+@mixin text-ellipsis($line-count: 0) {
+  @if ($line-count == 0) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    // https://kiranworkspace.com/ellipsis-to-multiline-text-in-css/
+    text-overflow: ellipsis;
+    overflow: hidden;
+    // Addition lines for 2 line or multiline ellipsis
+    display: -webkit-box !important;
+    -webkit-line-clamp: #{$line-count};
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+}

@@ -1,0 +1,42 @@
+@use '../../abstracts/' as *;
+
+:host {
+  display: block;
+
+  & > * {
+    width: 100%;
+  }
+}
+
+.empty {
+  background-color: yellowgreen;
+}
+
+.memos-title {
+  color: get-color('primary');
+  font-weight: bold;
+  padding: 8px;
+}
+
+#memo-content {
+  margin-bottom: 1rem;
+}
+
+.super-memo-item + .super-memo-item {
+  margin-top: 1rem;
+}
+
+.memo-new {
+  @include grid(0.5rem 1rem);
+  @include grid-areas('memo-title', 'memo-text', 'memo-add');
+
+  box-sizing: border-box;
+  grid-template-areas:
+    'memo-title memo-add'
+    'memo-text memo-add';
+  grid-template-columns: 1fr 80px;
+
+  .memo-add {
+    width: 100%;
+  }
+}

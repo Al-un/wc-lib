@@ -2,30 +2,42 @@
 
 :host {
   @include flex-col;
-
-  label {
-    color: get-color('text-sub');
-    font-size: $font-size-xs;
-    padding: 0 4px;
-    transition: color $speed-base;
-  }
-
-  input {
-    border: none;
-    border-bottom: 1px solid get-color('divider');
-    outline: none;
-    padding: 4px;
-    transition: border-color $speed-base;
-
-    &:active,
-    &:focus {
-      border-bottom: 1px solid get-color('primary');
-    }
-  }
 }
 
 :host(:focus-within) {
   label {
     color: get-color('primary');
+  }
+}
+
+label {
+  color: get-color('text-sub');
+  font-size: $font-size-xs;
+  padding: 0 4px;
+  transition: color $speed-base;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid get-color('divider');
+  outline: none;
+  padding: 4px;
+  transition: border-color $speed-base;
+
+  &:active,
+  &:focus {
+    border-bottom: 1px solid get-color('primary');
+  }
+}
+
+textarea {
+  resize: vertical;
+  border: 1px solid $divider;
+  outline: none; // reset browser style
+  transition: border-color $speed-base;
+
+  &:active,
+  &:focus {
+    border: 1px solid get-color('primary');
   }
 }

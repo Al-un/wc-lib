@@ -12,8 +12,8 @@ const Template: Story<SuperMemoItemStoryAttrs> = ({ memo, onDelete }) =>
     @delete=${onDelete}
   ></super-lit-ts-memo-item>`;
 
-const { Default, componentMeta } = SuperMemoItemStories(
+const { Default, LongMemo, componentMeta } = SuperMemoItemStories(
   { folderName: 'SuperLitTs', componentName: 'SuperLitTsMemoItem' },
   Template
 );
-export { componentMeta as default, Default };
+export { componentMeta as default, Default, LongMemo };

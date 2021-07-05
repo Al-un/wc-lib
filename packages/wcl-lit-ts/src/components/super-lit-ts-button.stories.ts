@@ -8,12 +8,14 @@ import './super-lit-ts-button';
 
 const Template: Story<SuperButtonStoryAttrs> = ({
   content,
+  disabled,
   outline,
   theme,
   icon,
   onClick,
 }) => html`<super-lit-ts-button
   .outline=${outline}
+  .disabled=${disabled}
   .theme=${theme}
   @click=${onClick}
 >

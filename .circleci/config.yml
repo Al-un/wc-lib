@@ -41,7 +41,7 @@ jobs:
     steps:
       - run:
           name: Linting check
-          command: yarn lerna run test:unit
+          command: yarn lerna run test
       
 
 workflows:

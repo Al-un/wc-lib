@@ -4,8 +4,6 @@ import { ComponentInfo } from '@wcl-core/types';
 
 export interface SuperCardStoryAttrs {
   content?: string;
-  footer?: string;
-  header?: string;
   padded?: boolean;
 }
 
@@ -15,15 +13,11 @@ export const SuperCardMeta = ({
 }: ComponentInfo) => ({
   title: `WebComp/components/${folderName}/${componentName}`,
   argTypes: {
-    header: { control: { type: 'text' } },
     content: { control: { type: 'text' } },
-    footer: { control: { type: 'text' } },
     padded: { control: { type: 'boolean' } },
   },
   args: {
     content: `This is some content`,
-    footer: `This is some footer`,
-    header: `This is some header`,
     padded: false,
   },
 });

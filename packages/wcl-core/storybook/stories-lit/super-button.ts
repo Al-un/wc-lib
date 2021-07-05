@@ -6,6 +6,7 @@ import DeleteIcon from '@wcl-core/assets/delete-black.svg';
 
 export interface SuperButtonStoryAttrs {
   content: string;
+  disabled: boolean;
   outline: boolean;
   icon: string;
   theme: SuperButtonTheme;
@@ -19,6 +20,7 @@ export const SuperButtonMeta = ({
   title: `WebComp/components/${folderName}/${componentName}`,
   argTypes: {
     content: { control: 'text' },
+    disabled: { control: 'boolean' },
     outline: { control: 'boolean' },
     icon: { control: 'text' },
     theme: { control: 'select', options: ['primary', 'danger'] },
@@ -26,6 +28,7 @@ export const SuperButtonMeta = ({
   },
   args: {
     content: 'This is a super button',
+    disabled: false,
     outline: false,
     icon: DeleteIcon,
     theme: 'primary',

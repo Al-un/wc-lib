@@ -5,7 +5,7 @@
     "web component"
   ],
   "author": "Al-un",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Al-un/wc-lib.git",

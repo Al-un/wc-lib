@@ -1,7 +1,16 @@
 {
   "name": "@al-un/wcl-core",
   "version": "0.0.1",
+  "keywords": [
+    "web component"
+  ],
   "author": "Al-un",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Al-un/wc-lib.git",
+    "directory": "packages/wcl-core"
+  },
   "scripts": {
     "lint": "eslint --cache --ext .js --ext .ts .",
     "test": "echo \"TODO?s\""

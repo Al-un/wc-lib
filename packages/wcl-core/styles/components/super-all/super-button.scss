@@ -1,5 +1,9 @@
 @use '../../abstracts/' as *;
 
+:host {
+  display: inline-block;
+}
+
 .super-button {
   align-items: center;
   border-radius: 4px;

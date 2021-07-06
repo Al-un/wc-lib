@@ -47,7 +47,7 @@ jobs:
       - node/install-packages:
            pkg-manager: yarn 
       - run:
-          name: Linting check
+          name: Base testing
           command: yarn lerna run test
   # Unit testing powered by PlayWright
   #   https://modern-web.dev/docs/test-runner/testing-in-a-ci/
@@ -55,12 +55,14 @@ jobs:
   test-playwright:
     docker:
       - image: mcr.microsoft.com/playwright:focal
+    environment:
+      NODE_ENV: development
     steps:
       - checkout
       - node/install-packages:
            pkg-manager: yarn 
       - run:
-          name: Linting check
+          name: Testing with playwright
           command: yarn lerna run test:playwright
       
 

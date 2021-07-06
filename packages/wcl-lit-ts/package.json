@@ -1,7 +1,7 @@
 {
   "name": "@al-un/wcl-lit-ts",
   "description": "Lit-Element, TypeScript flavoured, implementation of a web components library",
-  "version": "0.0.2-alpha.1",
+  "version": "0.0.2-alpha.2",
   "keywords": [
     "web component",
     "lit-element"
@@ -29,7 +29,7 @@
     "storybook": "start-storybook"
   },
   "devDependencies": {
-    "@al-un/wcl-core": "^0.0.2-alpha.1",
+    "@al-un/wcl-core": "^0.0.2-alpha.2",
     "@babel/core": "^7.14.6",
     "@open-wc/testing": "^2.5.33",
     "@rollup/plugin-alias": "^3.1.2",

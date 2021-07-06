@@ -1,7 +1,23 @@
 {
   "name": "@al-un/wcl-lit-ts",
+  "description": "Lit-Element, TypeScript flavoured, implementation of a web components library",
   "version": "0.0.1",
+  "keywords": [
+    "web component",
+    "lit-element"
+  ],
   "author": "Al-un",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Al-un/wc-lib.git",
+    "directory": "packages/wcl-lit-ts"
+  },
+  "main": "dist/index.js",
+  "type": "module",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "build": "rollup --config rollup.config.js",
     "build:rollup": "rollup --config rollup.config.js",

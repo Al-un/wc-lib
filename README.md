@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/Al-un/wc-lib/tree/master.svg?style=svg)](https://circleci.com/gh/Al-un/wc-lib/tree/master)
+[![CircleCI](https://circleci.com/gh/Al-un/wc-lib/tree/master.svg?style=svg)](https://circleci.com/gh/Al-un/wc-lib/)
 
 # WCL: Web Components libraries
 

@@ -148,4 +148,4 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
       - run:
           name: Publish packages to NPM
-          command: npm run lerna publish from-package --access=public --yes
+          command: npx lerna publish from-package --yes

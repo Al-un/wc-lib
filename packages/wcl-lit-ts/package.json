@@ -19,8 +19,8 @@
     "dist/"
   ],
   "scripts": {
-    "build": "rollup --config rollup.config.js",
-    "build:rollup": "rollup --config rollup.config.js",
+    "build": "yarn run build:rollup",
+    "build:rollup": "rimraf dist && rollup --config rollup.config.js",
     "build-storybook": "build-storybook",
     "chromatic": "chromatic",
     "lint": "eslint --cache --ext .js --ext .ts .",

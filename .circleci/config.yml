@@ -2,6 +2,35 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+workflows:
+  # Below is the definition of your workflow.
+  # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
+  # CircleCI will run this workflow on every commit.
+  # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows
+  integration:
+    jobs:
+      - init
+      - lint:
+          requires:
+            - init
+      - test-unit:
+          requires:
+            - init
+      - test-playwright:
+          requires:
+            - init
+      - build:
+          requires:
+            - lint
+            - test-unit
+            - test-playwright
+      - publish:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v.*/
+
 orbs:
   # The Node.js orb contains a set of prepackaged CircleCI configuration you can utilize
   # Orbs reduce the amount of configuration required for common tasks.
@@ -88,28 +117,18 @@ jobs:
           root: ./
           paths:
             - packages/wcl-lit-ts/dist/
-      
-
-
-workflows:
-  # Below is the definition of your workflow.
-  # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
-  # CircleCI will run this workflow on every commit.
-  # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows
-  integration:
-    jobs:
-      - init
-      - lint:
-          requires:
-            - init
-      - test-unit:
-          requires:
-            - init
-      - test-playwright:
-          requires:
-            - init
-      - build:
-          requires:
-            - lint
-            - test-unit
-            - test-playwright
+  # https://gist.github.com/koshuang/0ba921cf4a542726d52e4622b6393eab#file-circleci_lerna-yarn_starter-L187
+  publish:
+    docker:
+      - image: cimg/node:15.1
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo/
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+      - run:
+          name: Publish packages to NPM
+          command: npx lerna publish from-package --access=public --yes

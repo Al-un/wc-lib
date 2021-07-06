@@ -9,21 +9,36 @@ workflows:
   # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows
   integration:
     jobs:
-      - init
+      - init:
+          filters:
+            tags:
+              only: /^v.*/ # to forward to publush
       - lint:
           requires:
             - init
+          filters:
+            tags:
+              only: /^v.*/ # to forward to publush
       - test-unit:
           requires:
             - init
+          filters:
+            tags:
+              only: /^v.*/ # to forward to publush
       - test-playwright:
           requires:
             - init
+          filters:
+            tags:
+              only: /^v.*/ # to forward to publush
       - build:
           requires:
             - lint
             - test-unit
             - test-playwright
+          filters:
+            tags:
+              only: /^v.*/ # to forward to publush
       - publish:
           requires:
             - build

@@ -30,6 +30,8 @@ workflows:
           filters:
             tags:
               only: /^v.*/
+            branches:
+              ignore: /.*/
 
 orbs:
   # The Node.js orb contains a set of prepackaged CircleCI configuration you can utilize
@@ -131,4 +133,4 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
       - run:
           name: Publish packages to NPM
-          command: npm lerna publish from-package --access=public --yes
+          command: npm run lerna publish from-package --access=public --yes

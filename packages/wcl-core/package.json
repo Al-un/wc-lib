@@ -11,6 +11,9 @@
     "url": "https://github.com/Al-un/wc-lib.git",
     "directory": "packages/wcl-core"
   },
+  "files": [
+    "scss/"
+  ],
   "scripts": {
     "lint": "eslint --cache --ext .js --ext .ts .",
     "test": "echo \"TODO?s\""

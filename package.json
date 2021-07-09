@@ -10,6 +10,7 @@
     "lerna": "^4.0.0"
   },
   "devDependencies": {
+    "@types/mocha": "^8.2.3",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
     "chromatic": "^5.9.2",

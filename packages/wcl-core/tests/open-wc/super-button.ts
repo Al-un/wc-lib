@@ -2,9 +2,9 @@ import { expect, fixture, oneEvent } from '@open-wc/testing';
 
 export const testSuperButton = (tagName: string) => {
   describe(`${tagName}`, () => {
-    it('renders correctly', async () => {
+    it('passes accessibility test', async () => {
       const el = await fixture(`<${tagName}>Plop</${tagName}>`);
-      expect(el.textContent).to.equal('Plop');
+      await expect(el).to.be.accessible();
     });
 
     it('prout', async () => {

@@ -1,7 +1,5 @@
 import {
   LitElement,
-  css,
-  CSSResultGroup,
   html,
   unsafeCSS,
   TemplateResult,

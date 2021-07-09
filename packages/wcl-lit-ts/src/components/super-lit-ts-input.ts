@@ -37,12 +37,19 @@ export class SuperLitTsInput extends LitElement {
   }
 
   render(): TemplateResult {
-    return html` ${this.label ? html`<label>${this.label}</label>` : ''}
+    return html` ${this.label
+      ? html`<label for="my-input">${this.label}</label>`
+      : ''}
     ${this.type === 'textarea'
-      ? html`<textarea .value=${this.value} @input=${this.onInput}>
+      ? html`<textarea
+          id="my-input"
+          .value=${this.value}
+          @input=${this.onInput}
+        >
 ${this.value}</textarea
         >`
       : html`<input
+          id="my-input"
           .value=${this.value}
           type=${this.type}
           @input=${this.onInput}

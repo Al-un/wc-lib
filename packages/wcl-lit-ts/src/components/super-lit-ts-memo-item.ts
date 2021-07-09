@@ -37,7 +37,6 @@ export class SuperLitTsMemoItem extends LitElement {
       <super-lit-ts-button
         theme="danger"
         class="memo-delete"
-        outline
         @click=${this.onDelete}
         >Delete</super-lit-ts-button
       >`;

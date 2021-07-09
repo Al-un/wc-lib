@@ -5,7 +5,7 @@ import { defineConfig } from 'rollup';
 import autoprefixer from 'autoprefixer';
 import alias from '@rollup/plugin-alias';
 import resolve from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
+import typescript2 from 'rollup-plugin-typescript2';
 import summary from 'rollup-plugin-summary';
 import postcss from 'rollup-plugin-postcss';
 
@@ -21,7 +21,10 @@ export default defineConfig({
     // Resolve bare module specifiers to relative paths
     resolve(),
 
-    // https://github.com/egoist/rollup-plugin-postcss
+    // https://github.com/ezolenko/rollup-plugin-typescript2
+    typescript2({ typescript: require('typescript') }),
+
+    // https://github.com/egoist/rollup-plugin-postcss==
     // https://dev.to/plebras/setting-up-a-javascript-build-process-using-rollup-n1e#less-and-postcss
     postcss({
       use: ['sass'],
@@ -33,9 +36,6 @@ export default defineConfig({
       extract: false,
       minimize: false,
     }),
-
-    // https://github.com/rollup/plugins/tree/master/packages/typescript
-    typescript(),
 
     // Print bundle summary
     summary(),

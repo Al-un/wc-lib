@@ -5,14 +5,13 @@ import rollupCoreConfig from './rollup.config.core';
 
 // ----------------------------------------------------------------------------
 
+/** Get all components file. @todo: improve Regex T_T */
+const pattern1 = /^[\w-]+(?!(stories|spec))\.ts$/;
 /** Get all .spec.ts files */
-const pattern = /^[\w-]+\.spec\.ts$/;
+const pattern2 = /^[\w-]+\.spec\.ts$/;
 
 export default defineConfig({
   ...rollupCoreConfig,
-  input: getFilesPath('src', pattern),
-  output: [
-    // To preserve folder structure: https://stackoverflow.com/a/66725897/4906586
-    { format: 'es', dir: 'dist', exports: 'named', preserveModules: true },
-  ],
+  input: [...getFilesPath('src', pattern1), ...getFilesPath('src', pattern2)],
+  output: [{ format: 'es', dir: 'dist' }],
 });

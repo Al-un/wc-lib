@@ -25,3 +25,11 @@ yarn lerna run storybook
 - [`wcl-lit-ts`](packages/wcl-lit-ts/)
 
   Lit Element, TypeScript flavoured, implementation
+
+
+## Notes
+
+- Testing
+  - Snapshot errors
+    - https://github.com/open-wc/open-wc/issues/2128
+    - https://github.com/open-wc/open-wc/issues/1845

@@ -39,6 +39,14 @@ workflows:
           filters:
             tags:
               only: /^v.*/ # to forward to publish
+      - build-storybook:
+          requires:
+            - lint
+            - test-unit
+            - test-playwright
+          filters:
+            tags:
+              only: /^v.*/ # to forward to publish
       - publish:
           requires:
             - build
@@ -83,6 +91,7 @@ jobs:
             - demos/vanilla-html/node_modules/
             - demos/vanilla-js/node_modules/
             - demos/vanilla-ts/node_modules/
+
   lint:
     docker:
       - image: cimg/node:15.1
@@ -94,6 +103,7 @@ jobs:
       - run:
           name: Linting check
           command: yarn lerna run lint
+
   # Unit testing: standard / base version?
   test-unit:
     docker:
@@ -106,6 +116,7 @@ jobs:
       - run:
           name: Base testing
           command: yarn lerna run test
+
   # Unit testing powered by PlayWright
   #   https://modern-web.dev/docs/test-runner/testing-in-a-ci/
   #   https://playwright.dev/docs/ci/#circleci
@@ -122,6 +133,7 @@ jobs:
       - run:
           name: Testing with playwright
           command: yarn lerna run test:playwright
+
   build:
     docker:
       - image: cimg/node:15.1
@@ -139,6 +151,23 @@ jobs:
             - packages/wcl-lit-ts/dist/
             - demos/vanilla-js/dist/
             - demos/vanilla-ts/dist/
+
+  build-storybook:
+    docker:
+      - image: cimg/node:15.1
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo/
+      - run:
+          name: Build Storybook
+          command: yarn lerna run build-storybook
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - packages/wcl-lit-ts/storybook-static
+
   # https://gist.github.com/koshuang/0ba921cf4a542726d52e4622b6393eab#file-circleci_lerna-yarn_starter-L187
   publish:
     docker:

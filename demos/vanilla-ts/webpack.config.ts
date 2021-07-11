@@ -5,11 +5,11 @@ import { Configuration } from 'webpack';
 const config: Configuration = {
   mode: 'development',
 
-  entry: { main: './index.ts' },
+  entry: { main: './src/index.ts' },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: 'src/index.html',
       filename: 'index.html',
       chunks: ['main'],
     }),

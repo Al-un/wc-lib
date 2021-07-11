@@ -16,7 +16,8 @@
   ],
   "scripts": {
     "lint": "eslint --cache --ext .js --ext .ts .",
-    "test": "echo \"TODO?s\""
+    "test": "yarn run sass",
+    "sass": "sass styles:dist/styles/"
   },
   "devDependencies": {
     "@storybook/addons": "6.3.0",

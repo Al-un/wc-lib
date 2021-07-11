@@ -14,7 +14,7 @@
     "build": "NODE_ENV=production webpack",
     "lint": "eslint --cache --ext .js --ext .ts ./src",
     "start": "webpack serve --open",
-    "test": "yarn build"
+    "test": "echo \"Nope at the moment\""
   },
   "dependencies": {
     "@al-un/wcl-lit-ts": "^0.0.2-alpha.4"

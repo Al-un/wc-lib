@@ -22,6 +22,7 @@ export default defineConfig({
     resolve(),
 
     // https://github.com/ezolenko/rollup-plugin-typescript2
+    // eslint-disable-next-line no-undef
     typescript2({ typescript: require('typescript') }),
 
     // https://github.com/egoist/rollup-plugin-postcss==

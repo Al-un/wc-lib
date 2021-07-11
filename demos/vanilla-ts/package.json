@@ -1,0 +1,29 @@
+{
+  "name": "@al-un/wcl-demo-vanilla-ts",
+  "version": "0.0.2-alpha4",
+  "description": "Web component library usage demo with plain Webpack+TypeScript",
+  "author": "Al-un",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Al-un/wc-lib.git",
+    "directory": "demo/vanilla-ts"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "lint": "eslint --cache --ext .js --ext .ts .",
+    "start": "webpack serve --open",
+    "test": "yarn build"
+  },
+  "dependencies": {
+    "@al-un/wcl-lit-ts": "^0.0.2-alpha.4"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^5.3.2",
+    "ts-loader": "^9.2.3",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

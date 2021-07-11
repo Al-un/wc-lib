@@ -5,7 +5,9 @@
     "packages/*"
   ],
   "scripts": {
-    "lerna": "lerna"
+    "lerna": "lerna",
+    "nuke":"lerna clean --yes && rm -Rf node_modules",
+    "postinstall": "lerna bootstrap"
   },
   "dependencies": {
     "lerna": "^4.0.0"

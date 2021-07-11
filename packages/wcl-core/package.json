@@ -17,5 +17,9 @@
   "scripts": {
     "lint": "eslint --cache --ext .js --ext .ts .",
     "test": "echo \"TODO?s\""
+  },
+  "devDependencies": {
+    "@storybook/addons": "6.3.0",
+    "@storybook/web-components": "6.3.0"
   }
 }

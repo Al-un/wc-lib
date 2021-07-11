@@ -1,18 +1,15 @@
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 
-import { ComponentInfo } from '@wcl-core/types';
-
-export interface SuperInputStoryAttrs {
-  label?: string;
-  value?: string | number;
-  type?: string;
-  onInput: () => void;
-}
+import {
+  ComponentInfo,
+  SuperInputStoriesBuilder,
+  SuperInputStoryAttrs,
+} from '../types';
 
 export const SuperInputMeta = ({
   folderName,
   componentName,
-}: ComponentInfo) => ({
+}: ComponentInfo): Meta => ({
   title: `WebComp/components/${folderName}/${componentName}`,
   argTypes: {
     label: { control: 'text' },
@@ -29,10 +26,10 @@ export const SuperInputMeta = ({
   },
 });
 
-export const SuperInputStories = (
-  { folderName, componentName }: ComponentInfo,
-  template: Story<SuperInputStoryAttrs>
-) => {
+export const SuperInputStories: SuperInputStoriesBuilder<
+  Meta,
+  Story<SuperInputStoryAttrs>
+> = (compInfo, template) => {
   const Default = template.bind({});
 
   const InputText = template.bind({});
@@ -56,6 +53,6 @@ export const SuperInputStories = (
     InputNumber,
     InputPassword,
     InputTextArea,
-    componentMeta: SuperInputMeta({ folderName, componentName }),
+    componentMeta: SuperInputMeta(compInfo),
   };
 };

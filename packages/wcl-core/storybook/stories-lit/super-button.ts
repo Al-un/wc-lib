@@ -1,22 +1,17 @@
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 
-import { SuperButtonTheme, ComponentInfo } from '@wcl-core/types';
+import {
+  SuperButtonMetaBuilder,
+  SuperButtonStoriesBuilder,
+  SuperButtonStoryAttrs,
+} from '../types';
 
 import DeleteIcon from '@wcl-core/assets/delete-black.svg';
 
-export interface SuperButtonStoryAttrs {
-  content: string;
-  disabled: boolean;
-  outline: boolean;
-  icon: string;
-  theme: SuperButtonTheme;
-  onClick: () => void;
-}
-
-export const SuperButtonMeta = ({
+export const SuperButtonMeta: SuperButtonMetaBuilder<Meta> = ({
   folderName,
   componentName,
-}: ComponentInfo) => ({
+}) => ({
   title: `WebComp/components/${folderName}/${componentName}`,
   argTypes: {
     content: { control: 'text' },
@@ -35,14 +30,14 @@ export const SuperButtonMeta = ({
   },
 });
 
-export const SuperButtonStories = (
-  { folderName, componentName }: ComponentInfo,
-  template: Story<SuperButtonStoryAttrs>
-) => {
+export const SuperButtonStories: SuperButtonStoriesBuilder<
+  Meta,
+  Story<SuperButtonStoryAttrs>
+> = (compInfo, template) => {
   const Default = template.bind({});
 
   return {
     Default,
-    componentMeta: SuperButtonMeta({ folderName, componentName }),
+    componentMeta: SuperButtonMeta(compInfo),
   };
 };

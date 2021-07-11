@@ -1,16 +1,15 @@
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 
-import { ComponentInfo } from '@wcl-core/types';
-
-export interface SuperCardStoryAttrs {
-  content?: string;
-  padded?: boolean;
-}
+import {
+  ComponentInfo,
+  SuperCardStoriesBuilder,
+  SuperCardStoryAttrs,
+} from '../types';
 
 export const SuperCardMeta = ({
   folderName,
   componentName,
-}: ComponentInfo) => ({
+}: ComponentInfo): Meta => ({
   title: `WebComp/components/${folderName}/${componentName}`,
   argTypes: {
     content: { control: { type: 'text' } },
@@ -22,10 +21,10 @@ export const SuperCardMeta = ({
   },
 });
 
-export const SuperCardStories = (
-  { folderName, componentName }: ComponentInfo,
-  template: Story<SuperCardStoryAttrs>
-) => {
+export const SuperCardStories: SuperCardStoriesBuilder<
+  Meta,
+  Story<SuperCardStoryAttrs>
+> = (compInfo, template) => {
   const Default = template.bind({});
 
   const Padded = template.bind({});
@@ -34,6 +33,6 @@ export const SuperCardStories = (
   return {
     Default,
     Padded,
-    componentMeta: SuperCardMeta({ folderName, componentName }),
+    componentMeta: SuperCardMeta(compInfo),
   };
 };

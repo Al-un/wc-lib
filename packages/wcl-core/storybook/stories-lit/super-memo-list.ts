@@ -1,17 +1,15 @@
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 
-import { SuperMemo, ComponentInfo } from '@wcl-core/types';
-
-export interface SuperMemoListStoryAttrs {
-  memos: SuperMemo[];
-  onDelete: () => void;
-  onAdd: () => void;
-}
+import {
+  ComponentInfo,
+  SuperMemoListStoriesBuilder,
+  SuperMemoListStoryAttrs,
+} from '../types';
 
 export const SuperMemoListMeta = ({
   folderName,
   componentName,
-}: ComponentInfo) => ({
+}: ComponentInfo): Meta => ({
   title: `WebComp/components/${folderName}/${componentName}`,
   argTypes: {
     memos: { control: 'object' },
@@ -26,14 +24,14 @@ export const SuperMemoListMeta = ({
   },
 });
 
-export const SuperMemoListStories = (
-  { folderName, componentName }: ComponentInfo,
-  template: Story<SuperMemoListStoryAttrs>
-) => {
+export const SuperMemoListStories: SuperMemoListStoriesBuilder<
+  Meta,
+  Story<SuperMemoListStoryAttrs>
+> = (compInfo, template) => {
   const Default = template.bind({});
 
   return {
     Default,
-    componentMeta: SuperMemoListMeta({ folderName, componentName }),
+    componentMeta: SuperMemoListMeta(compInfo),
   };
 };

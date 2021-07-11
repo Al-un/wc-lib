@@ -1,6 +1,6 @@
 import { expect, fixture, oneEvent } from '@open-wc/testing';
 
-export const testSuperButton = (tagName: string) => {
+export const testSuperButton = (tagName: string): void => {
   describe(`${tagName}`, () => {
     it('passes accessibility test', async () => {
       const el = await fixture(`<${tagName}>Plop</${tagName}>`);

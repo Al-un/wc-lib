@@ -1,6 +1,6 @@
 import { expect, fixture } from '@open-wc/testing';
 
-export const testSuperMemoList = (tagName: string) => {
+export const testSuperMemoList = (tagName: string): void => {
   describe(`${tagName}`, () => {
     it('passes accessibility test', async () => {
       const el = await fixture(`<${tagName}>Plop</${tagName}>`);

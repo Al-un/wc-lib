@@ -1,6 +1,6 @@
 import { defineConfig } from 'rollup';
 // Import rollup plugins
-import autoprefixer from 'autoprefixer';
+// import autoprefixer from 'autoprefixer';
 import alias from '@rollup/plugin-alias';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript2 from 'rollup-plugin-typescript2';
@@ -28,22 +28,23 @@ export default defineConfig({
     // Resolve bare module specifiers to relative paths
     resolve(),
 
-    // https://github.com/ezolenko/rollup-plugin-typescript2
-    // eslint-disable-next-line no-undef
-    typescript2({ typescript: require('typescript') }),
-
     // https://github.com/egoist/rollup-plugin-postcss==
     // https://dev.to/plebras/setting-up-a-javascript-build-process-using-rollup-n1e#less-and-postcss
     postcss({
       use: ['sass'],
       extensions: ['.scss'],
       // https://stackoverflow.com/questions/56097519/how-to-use-autoprefixer-with-web-components-litelement
-      plugins: [autoprefixer],
+      // plugins: [autoprefixer()],
       // loaders: ['sass'],
       inject: false,
       extract: false,
       minimize: false,
+      config: 'postcss.config.js',
     }),
+
+    // https://github.com/ezolenko/rollup-plugin-typescript2
+    // eslint-disable-next-line no-undef
+    typescript2({ typescript: require('typescript') }),
 
     // Print bundle summary
     summary(),

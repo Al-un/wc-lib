@@ -25,7 +25,7 @@
     "chromatic": "chromatic",
     "lint": "eslint --cache --ext .js --ext .ts .",
     "test": "echo \"Use test:playwright with proper Docker image\"",
-    "test:playwright": "web-test-runnner",
+    "test:playwright": "web-test-runner",
     "storybook": "start-storybook"
   },
   "devDependencies": {

@@ -3069,7 +3069,7 @@
     resolve-from "^5.0.0"
     store2 "^2.12.0"
 
-"@storybook/web-components@^6.3.0":
+"@storybook/web-components@6.3.0", "@storybook/web-components@^6.3.0":
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/@storybook/web-components/-/web-components-6.3.0.tgz#3e0d4ccf517ab5f0529cab38e6976ac5a74716af"
   integrity sha512-yhaQwip2NO/iy3n0vDvlrS+6zjMwXuAAmlzzBvoABVbk/AUuOuk6cGyOaUd9RxYmdepQGWGFWmQ7jIRLiudsMw==

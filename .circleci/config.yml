@@ -12,25 +12,19 @@ workflows:
       - init:
           filters:
             tags:
-              only: /^v.*/ # to forward to publush
+              only: /^v.*/ # to forward to publish
       - lint:
           requires:
             - init
           filters:
             tags:
-              only: /^v.*/ # to forward to publush
+              only: /^v.*/ # to forward to publish
       - test-unit:
           requires:
             - init
           filters:
             tags:
-              only: /^v.*/ # to forward to publush
-      - test-playwright:
-          requires:
-            - init
-          filters:
-            tags:
-              only: /^v.*/ # to forward to publush
+              only: /^v.*/ # to forward to publish
       - build:
           requires:
             - lint
@@ -38,7 +32,7 @@ workflows:
             - test-playwright
           filters:
             tags:
-              only: /^v.*/ # to forward to publush
+              only: /^v.*/ # to forward to publish
       - publish:
           requires:
             - build

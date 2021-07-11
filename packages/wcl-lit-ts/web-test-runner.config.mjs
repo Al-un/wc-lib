@@ -1,3 +1,4 @@
+import { esbuildPlugin } from '@web/dev-server-esbuild';
 import { playwrightLauncher } from '@web/test-runner-playwright';
 
 export default /** @type {import("@web/test-runner").TestRunnerConfig} */ ({
@@ -27,8 +28,10 @@ export default /** @type {import("@web/test-runner").TestRunnerConfig} */ ({
 
   // See documentation for all available options
   coverageConfig: {
-    include:['dist/super-*'],
+    include: ['dist/super-*'],
     report: true,
     reportDir: 'coverage',
   },
+
+  plugins: [esbuildPlugin({ ts: true, target: 'auto' })],
 });

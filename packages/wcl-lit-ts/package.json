@@ -24,8 +24,7 @@
     "build-storybook": "build-storybook",
     "chromatic": "chromatic",
     "lint": "eslint --cache --ext .js --ext .ts .",
-    "test": "echo \"TODO\"",
-    "test:playwright": "rimraf dist && rollup --config rollup.config.test.js && web-test-runner --config wtr.config.playwright.mjs --coverage",
+    "test": "web-test-runnner",
     "storybook": "start-storybook"
   },
   "devDependencies": {
@@ -38,6 +37,7 @@
     "@storybook/addon-essentials": "^6.3.0",
     "@storybook/addon-links": "^6.3.0",
     "@storybook/web-components": "^6.3.0",
+    "@web/dev-server-esbuild": "^0.2.12",
     "@web/test-runner": "^0.13.13",
     "@web/test-runner-playwright": "^0.8.6",
     "babel-loader": "^8.2.2",

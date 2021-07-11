@@ -21,19 +21,18 @@ workflows:
               only: /^v.*/ # to forward to publish
       - test-unit:
           requires:
-            - init
+            - lint
           filters:
             tags:
               only: /^v.*/ # to forward to publish
       - test-playwright:
           requires:
-            - init
+            - lint
           filters:
             tags:
               only: /^v.*/ # to forward to publish
       - build:
           requires:
-            - lint
             - test-unit
             - test-playwright
           filters:
@@ -41,7 +40,6 @@ workflows:
               only: /^v.*/ # to forward to publish
       - build-storybook:
           requires:
-            - lint
             - test-unit
             - test-playwright
           filters:

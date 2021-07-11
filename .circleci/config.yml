@@ -25,6 +25,12 @@ workflows:
           filters:
             tags:
               only: /^v.*/ # to forward to publish
+      - test-playwright:
+          requires:
+            - init
+          filters:
+            tags:
+              only: /^v.*/ # to forward to publish
       - build:
           requires:
             - lint

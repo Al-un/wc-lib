@@ -17,9 +17,10 @@
   "scripts": {
     "lint": "eslint --cache --ext .js --ext .ts .",
     "test": "yarn run sass",
-    "sass": "sass styles:dist/styles/"
+    "sass": "rimraf dist/styles/ && sass styles:dist/styles/ --no-source-map && postcss dist/styles/ --replace --no-map"
   },
   "devDependencies": {
-    "@storybook/web-components": "6.3.4"
+    "@storybook/web-components": "6.3.4",
+    "postcss-cli": "^7.1.2"
   }
 }

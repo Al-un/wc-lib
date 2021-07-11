@@ -20,7 +20,6 @@
     "sass": "sass styles:dist/styles/"
   },
   "devDependencies": {
-    "@storybook/addons": "6.3.0",
-    "@storybook/web-components": "6.3.0"
+    "@storybook/web-components": "6.3.4"
   }
 }

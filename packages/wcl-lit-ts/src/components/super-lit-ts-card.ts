@@ -1,17 +1,12 @@
-import {
-  LitElement,
-  css,
-  CSSResultGroup,
-  html,
-  unsafeCSS,
-  TemplateResult,
-} from 'lit';
+import { LitElement, html, unsafeCSS, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 import scss from '@al-un/wcl-core/styles/components/super-all/super-card.scss';
+import { SuperCardProps } from '@wcl-core/types';
+import { LitPropsDeclaration } from '@wcl-lit-ts/utils';
 
 @customElement('super-lit-ts-card')
-export class SuperLitTsCard extends LitElement {
+export class SuperLitTsCard extends LitElement implements SuperCardProps {
   static styles = unsafeCSS(scss);
 
   padded!: boolean;
@@ -22,7 +17,7 @@ export class SuperLitTsCard extends LitElement {
     this.padded = false;
   }
 
-  static get properties() {
+  static get properties(): LitPropsDeclaration<SuperCardProps> {
     return {
       padded: { type: Boolean },
     };

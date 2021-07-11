@@ -3,23 +3,12 @@ import { customElement } from 'lit/decorators.js';
 import { ClassInfo, classMap } from 'lit/directives/class-map.js';
 
 import scss from '@al-un/wcl-core/styles/components/super-all/super-button.scss';
-import { SuperButtonTheme } from '@al-un/wcl-core/types';
+import { SuperButtonProps, SuperButtonTheme } from '@al-un/wcl-core/types';
+import { LitPropsDeclaration } from '@wcl-lit-ts/utils';
 
 @customElement('super-lit-ts-button')
-export class SuperLitTsButton extends LitElement {
+export class SuperLitTsButton extends LitElement implements SuperButtonProps {
   static styles = unsafeCSS(scss);
-
-  // @property({ type: Boolean })
-  // solid = false;
-
-  // @property({ type: Boolean })
-  // outline = false;
-
-  // @property({ type: Boolean })
-  // primary = false;
-
-  // @property({ type: Boolean })
-  // danger = false;
 
   disabled!: boolean;
   outline!: boolean;
@@ -33,7 +22,7 @@ export class SuperLitTsButton extends LitElement {
     this.theme = 'primary';
   }
 
-  static get properties() {
+  static get properties(): LitPropsDeclaration<SuperButtonProps> {
     return {
       disabled: { type: Boolean },
       outline: { type: Boolean },

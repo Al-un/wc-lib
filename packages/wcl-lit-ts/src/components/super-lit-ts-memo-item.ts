@@ -1,20 +1,17 @@
-import {
-  LitElement,
-  css,
-  CSSResultGroup,
-  html,
-  unsafeCSS,
-  TemplateResult,
-} from 'lit';
+import { LitElement, html, unsafeCSS, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 import scss from '@al-un/wcl-core/styles/components/super-all/super-memo-item.scss';
-import { SuperMemo } from '@al-un/wcl-core/types';
+import { SuperMemo, SuperMemoItemProps } from '@al-un/wcl-core/types';
 
 import './super-lit-ts-button';
+import { LitPropsDeclaration } from '@wcl-lit-ts/utils';
 
 @customElement('super-lit-ts-memo-item')
-export class SuperLitTsMemoItem extends LitElement {
+export class SuperLitTsMemoItem
+  extends LitElement
+  implements SuperMemoItemProps
+{
   static styles = unsafeCSS(scss);
 
   memo!: SuperMemo;
@@ -25,7 +22,7 @@ export class SuperLitTsMemoItem extends LitElement {
     this.memo = { id: 1, title: 'no title', text: '' };
   }
 
-  static get properties() {
+  static get properties(): LitPropsDeclaration<SuperMemoItemProps> {
     return { memo: { type: Object } };
   }
 

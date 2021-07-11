@@ -1,22 +1,17 @@
-import {
-  LitElement,
-  css,
-  CSSResultGroup,
-  html,
-  unsafeCSS,
-  TemplateResult,
-} from 'lit';
+import { LitElement, html, unsafeCSS, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 import scss from '@al-un/wcl-core/styles/components/super-all/super-input.scss';
+import { SuperInputProps } from '@wcl-core/types';
+import { LitPropsDeclaration } from '@wcl-lit-ts/utils';
 
 @customElement('super-lit-ts-input')
-export class SuperLitTsInput extends LitElement {
+export class SuperLitTsInput extends LitElement implements SuperInputProps {
   static styles = unsafeCSS(scss);
 
   label?: string;
-  value!: string | number;
   type!: string;
+  value!: string | number;
   // https://github.com/lit/lit-element/issues/1121
   // Replaced by https://medium.com/collaborne-engineering/litelement-two-way-data-binding-48aec4692f7e
   // @query('input', true) _inputElement!: HTMLInputElement;
@@ -28,11 +23,11 @@ export class SuperLitTsInput extends LitElement {
     this.type = 'text';
   }
 
-  static get properties() {
+  static get properties(): LitPropsDeclaration<SuperInputProps> {
     return {
       label: { type: String },
-      value: { type: [String, Number] },
       type: { type: String },
+      value: { type: [String, Number] },
     };
   }
 

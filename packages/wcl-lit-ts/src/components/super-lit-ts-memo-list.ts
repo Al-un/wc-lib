@@ -1,22 +1,20 @@
-import {
-  LitElement,
-  html,
-  unsafeCSS,
-  TemplateResult,
-} from 'lit';
+import { LitElement, html, unsafeCSS, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 import scss from '@al-un/wcl-core/styles/components/super-all/super-memo-list.scss';
-import { SuperMemo } from '@al-un/wcl-core/types';
+import { SuperMemo, SuperMemoListProps } from '@al-un/wcl-core/types';
 
 import './super-lit-ts-button';
 import './super-lit-ts-card';
 import './super-lit-ts-input';
 import './super-lit-ts-memo-item';
-import { SuperLitTsInput } from './super-lit-ts-input';
+import { LitPropsDeclaration } from '@wcl-lit-ts/utils';
 
 @customElement('super-lit-ts-memo-list')
-export class SuperLitTsMemoList extends LitElement {
+export class SuperLitTsMemoList
+  extends LitElement
+  implements SuperMemoListProps
+{
   static styles = unsafeCSS(scss);
 
   _memoTitle = '';
@@ -29,12 +27,12 @@ export class SuperLitTsMemoList extends LitElement {
     super();
   }
 
-  static get properties() {
+  static get properties(): LitPropsDeclaration<SuperMemoListProps> {
     return {
-      memos: { type: Array },
-      title: { type: String },
       _memoTitle: { type: String, state: true },
       _memoText: { type: String, state: true },
+      memos: { type: Array },
+      title: { type: String },
     };
   }
 

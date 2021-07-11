@@ -24,7 +24,8 @@
     "build-storybook": "build-storybook",
     "chromatic": "chromatic",
     "lint": "eslint --cache --ext .js --ext .ts .",
-    "test": "web-test-runnner",
+    "test": "echo \"Use test:playwright with proper Docker image\"",
+    "test:playwright": "web-test-runnner",
     "storybook": "start-storybook"
   },
   "devDependencies": {

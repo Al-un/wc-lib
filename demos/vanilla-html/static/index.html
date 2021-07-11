@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <title>WCL Demo: HTML</title>
+    <script
+      type="module"
+      src="https://unpkg.com/@al-un/wcl-lit-ts@0.0.2-alpha.4/dist/index.js"
+    ></script>
+    <script type="module" src="./index.js"></script>
+  </head>
+  <body>
+    <section>
+      <h2>My Super form</h2>
+
+      <super-lit-ts-input
+        id="memo-title"
+        label="Memo title"
+      ></super-lit-ts-input>
+      <super-lit-ts-button id="memo-add"
+        >Do something with the title!</super-lit-ts-button
+      >
+    </section>
+
+    <section>
+      <h2>My Super Memos</h2>
+      <super-lit-ts-memo-list id="memos-list"></super-lit-ts-memo-list>
+    </section>
+  </body>
+</html>

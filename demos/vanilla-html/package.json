@@ -1,0 +1,21 @@
+{
+  "name": "@al-un/wcl-demo-vanilla-html",
+  "version": "0.0.2-alpha4",
+  "description": "Web component library usage demo with plain HTML",
+  "author": "Al-un",
+  "license": "MIT",
+  "private": true,
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Al-un/wc-lib.git",
+    "directory": "demo/vanilla-html"
+  },
+  "scripts": {
+    "lint": "eslint --cache --ext .js --ext .ts .",
+    "start": "node index.mjs"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

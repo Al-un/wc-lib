@@ -1,9 +1,9 @@
 import { Story } from '@storybook/web-components';
-import {
-  SuperMemoItemStories,
-  SuperMemoItemStoryAttrs,
-} from '@al-un/wcl-core/storybook/stories-lit';
 import { html } from 'lit-html';
+
+import { SuperMemoItemStories } from '@al-un/wcl-core/storybook/stories-lit';
+import { SuperMemoItemStoryAttrs } from '@al-un/wcl-core/storybook/types';
+
 import './super-lit-ts-memo-item';
 
 const Template: Story<SuperMemoItemStoryAttrs> = ({ memo, onDelete }) =>

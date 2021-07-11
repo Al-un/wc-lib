@@ -4,11 +4,11 @@ import { customElement } from 'lit/decorators.js';
 import scss from '@al-un/wcl-core/styles/components/super-all/super-memo-list.scss';
 import { SuperMemo, SuperMemoListProps } from '@al-un/wcl-core/types';
 
+import { LitPropsDeclaration } from '@wcl-lit-ts/utils';
 import './super-lit-ts-button';
 import './super-lit-ts-card';
 import './super-lit-ts-input';
 import './super-lit-ts-memo-item';
-import { LitPropsDeclaration } from '@wcl-lit-ts/utils';
 
 @customElement('super-lit-ts-memo-list')
 export class SuperLitTsMemoList

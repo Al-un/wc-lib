@@ -1,9 +1,9 @@
 import { Story } from '@storybook/web-components';
-import {
-  SuperCardStories,
-  SuperCardStoryAttrs,
-} from '@al-un/wcl-core/storybook/stories-lit';
 import { html } from 'lit-html';
+
+import { SuperCardStories } from '@al-un/wcl-core/storybook/stories-lit';
+import { SuperCardStoryAttrs } from '@al-un/wcl-core/storybook/types';
+
 import './super-lit-ts-card';
 
 const Template: Story<SuperCardStoryAttrs> = ({ content, padded }) =>

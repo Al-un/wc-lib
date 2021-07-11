@@ -1,9 +1,9 @@
 import { Story } from '@storybook/web-components';
-import {
-  SuperMemoListStories,
-  SuperMemoListStoryAttrs,
-} from '@al-un/wcl-core/storybook/stories-lit';
 import { html } from 'lit-html';
+
+import { SuperMemoListStories } from '@al-un/wcl-core/storybook/stories-lit';
+import { SuperMemoListStoryAttrs } from '@al-un/wcl-core/storybook/types';
+
 import './super-lit-ts-memo-list';
 
 const Template: Story<SuperMemoListStoryAttrs> = ({ memos, onAdd, onDelete }) =>

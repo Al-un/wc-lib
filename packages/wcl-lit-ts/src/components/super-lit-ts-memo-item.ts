@@ -4,8 +4,8 @@ import { customElement } from 'lit/decorators.js';
 import scss from '@al-un/wcl-core/styles/components/super-all/super-memo-item.scss';
 import { SuperMemo, SuperMemoItemProps } from '@al-un/wcl-core/types';
 
-import './super-lit-ts-button';
 import { LitPropsDeclaration } from '@wcl-lit-ts/utils';
+import './super-lit-ts-button';
 
 @customElement('super-lit-ts-memo-item')
 export class SuperLitTsMemoItem

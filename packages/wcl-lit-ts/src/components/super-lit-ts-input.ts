@@ -2,7 +2,8 @@ import { LitElement, html, unsafeCSS, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 import scss from '@al-un/wcl-core/styles/components/super-all/super-input.scss';
-import { SuperInputProps } from '@wcl-core/types';
+import { SuperInputProps } from '@al-un/wcl-core/types';
+
 import { LitPropsDeclaration } from '@wcl-lit-ts/utils';
 
 @customElement('super-lit-ts-input')

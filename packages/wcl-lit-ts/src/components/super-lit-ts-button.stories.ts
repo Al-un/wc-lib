@@ -1,9 +1,9 @@
 import { Story } from '@storybook/web-components';
-import {
-  SuperButtonStories,
-  SuperButtonStoryAttrs,
-} from '@al-un/wcl-core/storybook/stories-lit';
 import { html } from 'lit-html';
+
+import { SuperButtonStories } from '@al-un/wcl-core/storybook/stories-lit';
+import { SuperButtonStoryAttrs } from '@al-un/wcl-core/storybook/types';
+
 import './super-lit-ts-button';
 
 const Template: Story<SuperButtonStoryAttrs> = ({

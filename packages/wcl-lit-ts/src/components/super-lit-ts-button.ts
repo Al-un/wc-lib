@@ -4,6 +4,7 @@ import { ClassInfo, classMap } from 'lit/directives/class-map.js';
 
 import scss from '@al-un/wcl-core/styles/components/super-all/super-button.scss';
 import { SuperButtonProps, SuperButtonTheme } from '@al-un/wcl-core/types';
+
 import { LitPropsDeclaration } from '@wcl-lit-ts/utils';
 
 @customElement('super-lit-ts-button')

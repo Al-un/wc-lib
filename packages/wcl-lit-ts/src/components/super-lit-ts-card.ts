@@ -2,7 +2,8 @@ import { LitElement, html, unsafeCSS, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 import scss from '@al-un/wcl-core/styles/components/super-all/super-card.scss';
-import { SuperCardProps } from '@wcl-core/types';
+import { SuperCardProps } from '@al-un/wcl-core/types';
+
 import { LitPropsDeclaration } from '@wcl-lit-ts/utils';
 
 @customElement('super-lit-ts-card')

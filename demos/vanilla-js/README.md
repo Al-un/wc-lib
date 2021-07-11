@@ -16,3 +16,7 @@ yarn workspace @al-un/wcl-demo-vanilla-js start
 # Or
 npx lerna run start --scope=@al-un/wcl-demo-vanilla-js
 ```
+
+## About this demo
+
+This is a basic example of importing a web component library via a NPM package.

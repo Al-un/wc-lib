@@ -2,34 +2,59 @@
   display: inline-block;
 }
 
+$rhythm: 8px;
+$speed: 250ms;
+
 .super-button {
+  // ---------- Main styling --------------------------------------------------
   align-items: center;
-  border: 1px solid #f3f3f3f3;
-  border-radius: 4px;
+  border: 1px solid #23232339; // Also to test PostCSS
+  border-radius: $rhythm;
   display: flex;
   flex-direction: row;
-  overflow: hidden hidden;
-  padding: 8px;
+  padding: $rhythm 2 * $rhythm;
+  position: relative;
+  transition: background-color $speed;
   width: 100%;
-}
 
-// It's not very useful here but it will proves that SCSS works as
-// expect ^^
+  &::before {
+    background-color: transparent;
+    bottom: 0;
+    content: ' ';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: background-color $speed;
+  }
 
-$themes: (
-  'primary': (
-    'background': deepskyblue,
-    'color': white,
-  ),
-  'danger': (
-    'background': crimson,
-    'color': white,
-  ),
-);
+  &:hover {
+    cursor: pointer;
 
-@each $theme, $opts in $themes {
-  .#{$theme} {
-    background-color: map-get($opts, 'background');
-    color: map-get($opts, 'color');
+    &::before {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  // ---------- Themes --------------------------------------------------------
+  &.primary {
+    background-color: var(--wcl-primary, rebeccapurple);
+    color: white;
+  }
+
+  &.danger {
+    background-color: var(--wcl-danger, crimson);
+    color: white;
+  }
+
+  // ---------- Disabled ------------------------------------------------------
+  &[disabled] {
+    &::before {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    &:hover {
+      cursor: not-allowed;
+    }
   }
 }

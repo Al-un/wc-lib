@@ -24,11 +24,14 @@ interface SuperButtonPropsDeclaration extends PropertyDeclarations {
 export class SuperButton extends LitElement {
   /** Button theme, default to "primary" */
   theme!: SuperButtonTheme;
+  /** Button disabled state */
+  disabled!: boolean;
 
   constructor() {
     super();
 
     this.theme = 'primary';
+    this.disabled = false;
   }
 
   // some basic button styling to get started. We will improve it later
@@ -56,6 +59,7 @@ export class SuperButton extends LitElement {
    */
   static get properties(): SuperButtonPropsDeclaration {
     return {
+      disabled: { type: Boolean },
       theme: { type: String },
     };
   }
@@ -71,7 +75,10 @@ export class SuperButton extends LitElement {
   }
 
   render(): TemplateResult {
-    return html`<button class=${classMap(this.cssClasses)}>
+    return html`<button
+      class=${classMap(this.cssClasses)}
+      ?disabled=${this.disabled}
+    >
       <slot></slot>
     </button>`;
   }

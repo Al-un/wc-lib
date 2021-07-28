@@ -1,0 +1,35 @@
+:host {
+  display: inline-block;
+}
+
+.super-button {
+  align-items: center;
+  border: 1px solid #f3f3f3f3;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden hidden;
+  padding: 8px;
+  width: 100%;
+}
+
+// It's not very useful here but it will proves that SCSS works as
+// expect ^^
+
+$themes: (
+  'primary': (
+    'background': deepskyblue,
+    'color': white,
+  ),
+  'danger': (
+    'background': crimson,
+    'color': white,
+  ),
+);
+
+@each $theme, $opts in $themes {
+  .#{$theme} {
+    background-color: map-get($opts, 'background');
+    color: map-get($opts, 'color');
+  }
+}

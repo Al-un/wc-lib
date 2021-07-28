@@ -1,0 +1,10 @@
+# Dependencies
+node_modules
+
+# Web component library build outputs
+dist
+# Storybook build outputs
+storybook-static
+
+# Various toolings logs
+*.log

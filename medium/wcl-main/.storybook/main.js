@@ -21,7 +21,7 @@ module.exports = {
       ...config.resolve,
       alias: {
         ...config.resolve.alias,
-        '@wcl-lit': path.resolve(__dirname, '../src'),
+        '@wcl-main': path.resolve(__dirname, '../src'),
       },
     };
 

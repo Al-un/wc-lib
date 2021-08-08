@@ -1,6 +1,6 @@
 {
-  "name": "@al-un/wcl-lit",
-  "version": "0.0.3",
+  "name": "@al-un/wcl-main",
+  "version": "0.0.1",
   "description": "My super web component library!",
   "keywords": [
     "web component",

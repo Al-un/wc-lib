@@ -1,4 +1,4 @@
-# WCL Lit main
+# WCL Main
 
 Web component library example for <Medium article link to be added>
 
@@ -6,7 +6,7 @@ Web component library example for <Medium article link to be added>
 
 ```sh
 git clone https://github.com/Al-un/wc-lib.git
-cd standalone/wcl-lit-main
+cd medium/wcl-main
 
 npm install
 

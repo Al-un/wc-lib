@@ -1,8 +1,8 @@
 import { html } from 'lit';
 import { Meta, Story } from '@storybook/web-components';
 
-import '@wcl-lit/components/super-button';
-import { SuperButtonTheme } from '@wcl-lit/components/super-button';
+import '@wcl-main/components/super-button';
+import { SuperButtonTheme } from '@wcl-main/components/super-button';
 
 interface SuperButtonStoryAttrs {
   content: string;

@@ -10,7 +10,7 @@ import {
 import { customElement } from 'lit/decorators.js';
 import { ClassInfo, classMap } from 'lit/directives/class-map.js';
 
-import styling from '@wcl-lit/components/super-button.scss';
+import styling from '@wcl-main/components/super-button.scss';
 
 export type SuperButtonTheme = 'primary' | 'danger';
 

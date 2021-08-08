@@ -16,7 +16,7 @@ export default defineConfig({
   plugins: [
     // Define path aliases
     alias({
-      entries: [{ find: /^@wcl-lit\/(.*)$/, replacement: 'src/$1' }],
+      entries: [{ find: /^@wcl-main\/(.*)$/, replacement: 'src/$1' }],
     }),
 
     // Resolve node modules

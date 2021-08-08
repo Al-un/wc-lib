@@ -9,7 +9,7 @@
     "declarationMap": true,
     "experimentalDecorators": true,
     "paths": {
-      "@wcl-lit/*": ["./src/*"]
+      "@wcl-main/*": ["./src/*"]
     }
   }
 }

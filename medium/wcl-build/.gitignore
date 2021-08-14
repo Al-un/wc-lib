@@ -1,0 +1,8 @@
+# Output
+dist
+legacy
+modern
+custom-elements.json
+
+# Dependencies
+node_modules

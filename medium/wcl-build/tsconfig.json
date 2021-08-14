@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    // "outDir": "dist", // outDir will be explicitly defined for each configuration
+    // ES20129 is the recommended target by Lit documentation
+    // https://lit.dev/docs/tools/publishing/#publishing-modern-javascript
+    "target": "es2019",
+    // No need of dynamic imports from ES2020
+    // https://www.staging-typescript.org/tsconfig#module
+    "module": "es2015",
+    "moduleResolution": "node",
+    "lib": ["es2019", "dom"],
+    "experimentalDecorators": true,
+    "paths": {
+      "@wcl-build/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "shims.d.ts"]
+}

@@ -1,0 +1,25 @@
+// Return a color value with a CSS custom property and a predefined fallback
+// value
+@function get-color($color) {
+  // Theme colors
+  @if $color == 'primary' {
+    @return var(--wcl-primary, rebeccapurple);
+  } @else if $color == 'danger' {
+    @return var(--wcl-danger, crimson);
+  }
+
+  // Text colours
+  @else if $color == 'text' {
+    @return var(--wcl-text, #212121); // Material Design Gray 900
+  }
+
+  // Background
+  @else if $color == 'bg-content' {
+    @return var(--wcl-bg-content, #fff);
+  }
+
+  // T_T
+  @else {
+    @error "getColor: invalid color #{$color}";
+  }
+}

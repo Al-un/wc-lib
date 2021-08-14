@@ -1,0 +1,29 @@
+@use "../styles/index" as wcl;
+
+:host {
+  display: inline-block;
+}
+
+$rhythm: 8px;
+
+.super-button {
+  // ---------- Main styling --------------------------------------------------
+  align-items: center;
+  border: 1px solid #23232339;
+  border-radius: $rhythm;
+  display: flex;
+  flex-direction: row;
+  padding: $rhythm 2 * $rhythm;
+  width: 100%;
+
+  // ---------- Themes --------------------------------------------------------
+  &.primary {
+    background-color: wcl.get-color('primary');
+    color: white;
+  }
+
+  &.danger {
+    background-color: wcl.get-color('danger');
+    color: white;
+  }
+}

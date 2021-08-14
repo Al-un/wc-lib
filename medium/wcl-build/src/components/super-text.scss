@@ -1,0 +1,12 @@
+@use "../styles/index" as wcl;
+
+:host {
+  color: wcl.get-color('text');
+  display: block;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+
+:host([bold]) {
+  font-weight: bold;
+}

@@ -12,6 +12,8 @@ yarn lerna run storybook
 
 ## Packages
 
+### Components packages
+
 - [`wcl-core`](packages/wcl-core/)
 
   Core package for common utilities:
@@ -26,6 +28,36 @@ yarn lerna run storybook
 
   Lit Element, TypeScript flavoured, implementation
 
+### Demos packages
+
+- [`vanilla-html`](demos/vanilla-html/)
+
+  Bare HTML usage of web components, relying on CDN distribution. Uses `wcl-lit-ts`
+
+- [`vanilla-js`](demos/vanilla-js/)
+
+  Using `wcl-lit-ts` NPM package
+
+- [`vanilla-ts`](demos/vanilla-ts/)
+
+  Using `wcl-lit-ts` NPM package
+
+### Medium packages
+
+Those packages do not belong to the mono-repository structure.
+
+- [`wcl-main`](medium/wcl-main)
+
+  Demonstration of library setup (Lit + Storybook) with SCSS & PostCSS
+
+- [`wcl-build`](medium/wcl-build)
+
+  Focus on library build & distribution (NPM package + CDN distribution)
+  for both modern and legacy browsers
+
+- [`wcl-app`](medium/wcl-app)
+
+  Example of `wcl-build` consumer application with Webpack as bundler
 
 ## Notes
 

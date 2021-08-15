@@ -1,0 +1,36 @@
+{
+  "name": "@al-un/wcl-app",
+  "version": "0.0.1",
+  "description": "Consumer application of @al-un/wcl-build",
+  "keywords": [
+    "WCL"
+  ],
+  "author": "Al-un",
+  "license": "ISC",
+  "scripts": {
+    "start": "webpack serve --open",
+    "build": "NODE_ENV=production webpack",
+    "build:debug": "NODE_ENV=development webpack"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@webcomponents/webcomponentsjs": "^2.6.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "core-js": "^3.16.1",
+    "html-webpack-plugin": "^5.3.2",
+    "regenerator-runtime": "^0.13.9",
+    "ts-loader": "^9.2.5",
+    "typescript": "^4.3.5",
+    "webpack": "^5.49.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-nomodule-plugin": "^1.1.0"
+  },
+  "dependencies": {
+    "@al-un/wcl-build": "^0.0.1",
+    "lit": "^2.0.0-rc.2"
+  }
+}

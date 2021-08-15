@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WCL App</title>
+
+    <!-- Web componenting (Legacy) -->
+    <!-- https://lit.dev/docs/tools/requirements/#web-components-polyfills -->
+    <!-- <script src="babel-polyfills.js"></script>
+    <script src="custom-elements-es5-adapter.js"></script>
+    <script src="lit-polyfill-support.js"></script>
+    <script src="webcomponents-bundle.js"></script> -->
+    <!-- <script src="main.js"></script> -->
+
+    <!-- Web componenting (Modern) -->
+    <!-- <script src="main.js"></script> -->
+  </head>
+  <body>
+    <!-- Cannot use document.body.prepend due to IE11 -->
+    <nav id="nav-menu"></nav>
+
+    <h2>hello world</h2>
+
+    <super-text>This is a super text!</super-text>
+
+    <super-memo
+      title="A memo with NPM package"
+      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ></super-memo>
+
+    <useless-text></useless-text>
+  </body>
+</html>

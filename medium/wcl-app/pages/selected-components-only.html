@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WCL App</title>
+  </head>
+  <body>
+    <!-- Cannot use document.body.prepend due to IE11 -->
+    <nav id="nav-menu"></nav>
+    <h2>hello world Legacy</h2>
+
+    <super-button>super-button is loaded via super-memo</super-button>
+
+    <hr />
+
+    <super-memo
+      title="A memo with CDN Legacy"
+      text="Only super-memo is loaded."
+    ></super-memo>
+
+    <hr />
+
+    <super-text>super-text should not have been loaded</super-text>
+
+    <script
+      nomodule
+      src="https://unpkg.com/@al-un/wcl-build@0.0.1/legacy/all-polyfills.js"
+    ></script>
+
+    <script nomodule>
+      System.import(
+        'https://unpkg.com/@al-un/wcl-build/legacy/components/super-memo.js'
+      );
+    </script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/@al-un/wcl-build/modern/components/super-memo.js"
+    ></script>
+
+    <script>
+      var memos = document.getElementsByTagName('super-memo');
+      for (var i = 0; i < memos.length; i++) {
+        memos[i].addEventListener('delete', function (ev) {
+          console.log('Delete event received for: ', ev);
+        });
+      }
+    </script>
+  </body>
+</html>

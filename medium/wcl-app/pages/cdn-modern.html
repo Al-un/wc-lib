@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WCL App: CDN Modern</title>
+    <script
+      type="module"
+      src="https://unpkg.com/@al-un/wcl-build@0.0.1/modern/index.js"
+    ></script>
+  </head>
+  <body>
+    <!-- Cannot use document.body.prepend due to IE11 -->
+    <nav id="nav-menu"></nav>
+
+    <h2>Hello World Modern</h2>
+
+    <super-button>This is a super button</super-button>
+
+    <hr />
+
+    <super-memo
+      title="A memo with CDN"
+      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ></super-memo>
+
+    <super-memo
+      title="Another memo with CDN"
+      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ></super-memo>
+
+    <script>
+      const memos = document.getElementsByTagName('super-memo');
+      for (let memo of memos) {
+        memo.addEventListener('delete', (ev) => {
+          console.log('Delete event received for: ', ev);
+        });
+      }
+    </script>
+  </body>
+</html>

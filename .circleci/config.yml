@@ -126,8 +126,11 @@ jobs:
       NODE_ENV: development
     steps:
       - checkout
-      - attach_workspace:
-          at: ~/repo/
+      # - attach_workspace:
+      #     at: ~/repo/
+      - run:
+          name: Install dependencies
+          command: yarn install
       - run:
           name: Testing with playwright
           command: yarn lerna run test:playwright

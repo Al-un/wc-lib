@@ -6,5 +6,10 @@ export const testSuperCard = (tagName: string): void => {
       const el = await fixture(`<${tagName}>Plop</${tagName}>`);
       await expect(el).to.be.accessible();
     });
+
+    it('renders and matches snapshot', async () => {
+      const el = await fixture(`<${tagName}>Plop</${tagName}>`);
+      expect(el).shadowDom.to.equalSnapshot();
+    });
   });
 };

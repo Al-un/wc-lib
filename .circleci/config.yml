@@ -128,9 +128,21 @@ jobs:
       - checkout
       # - attach_workspace:
       #     at: ~/repo/
+      - restore_cache:
+          keys:
+            - wc-lib-v1-{{ checksum "yarn.lock" }}
+            - wc-lib-v1-
       - run:
           name: Install dependencies
           command: yarn install
+      - save_cache:
+          key: wc-lib-v1-{{ checksum "yarn.lock" }}
+          paths:
+            - demos/vanilla-js/node_modules
+            - demos/vanilla-ts/node_modules
+            - node_modules
+            - packages/wcl-core/node_modules
+            - packages/wcl-lit-ts/node_modules
       - run:
           name: Testing with playwright
           command: yarn lerna run test:playwright

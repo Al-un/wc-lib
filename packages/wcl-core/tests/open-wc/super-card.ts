@@ -9,7 +9,7 @@ export const testSuperCard = (tagName: string): void => {
 
     it('renders and matches snapshot', async () => {
       const el = await fixture(`<${tagName}>Plop</${tagName}>`);
-      expect(el).shadowDom.to.equalSnapshot();
+      await expect(el).shadowDom.to.equalSnapshot();
     });
   });
 };

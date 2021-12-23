@@ -11,6 +11,8 @@ module.exports = {
     config.module.rules.push({
       test: /\.scss$/,
       use: [
+        { loader: path.resolve('./webpack.scss-to-lit.js') },
+        { loader: 'extract-loader' },
         { loader: 'css-loader' },
         { loader: 'postcss-loader' },
         { loader: 'sass-loader' },

@@ -4,13 +4,18 @@ import alias from '@rollup/plugin-alias';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import summary from 'rollup-plugin-summary';
-import postcss from 'rollup-plugin-postcss';
+
+import scssToLit from './rollup.scss-to-lit';
 
 // ----------------------------------------------------------------------------
 
 export default defineConfig({
   // Re-export all components from here
-  input: ['src/index.ts'],
+  input: {
+    'super-button.css': 'src/components/super-button.scss',
+    'super-button': 'src/components/super-button.ts',
+    index: 'src/index.ts',
+  },
   // Build in ES Modules syntax
   output: [{ format: 'es', dir: 'dist' }],
   plugins: [
@@ -22,18 +27,7 @@ export default defineConfig({
     // Resolve node modules
     resolve(),
 
-    postcss({
-      // Define loader to use
-      use: ['sass'],
-      // Override the default extensions set
-      extensions: ['.scss'],
-      inject: false,
-      // Don't extract styling into dedicated files
-      extract: false,
-      minimize: false,
-      // PostCSS configuration file is then shared between Rollup and Storybook
-      config: 'postcss.config.js',
-    }),
+    scssToLit(),
 
     typescript(),
 

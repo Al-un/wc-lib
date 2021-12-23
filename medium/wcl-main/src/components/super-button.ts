@@ -1,11 +1,10 @@
 import {
-  css,
+  CSSResult,
   html,
   LitElement,
   PropertyDeclaration,
   PropertyDeclarations,
   TemplateResult,
-  unsafeCSS,
 } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { ClassInfo, classMap } from 'lit/directives/class-map.js';
@@ -36,9 +35,9 @@ export class SuperButton extends LitElement {
 
   // some basic button styling to get started. We will improve it later
   // when introducing SCSS
-  static styles = css`
-    ${unsafeCSS(styling)}
-  `;
+  static get styles(): CSSResult[] {
+    return [styling];
+  }
 
   /**
    * List of button properties that can be defined by an attribute
